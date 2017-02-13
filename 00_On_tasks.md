@@ -4,7 +4,7 @@ date: 9 January 2016
 author: Drew Steen
 ---
 
-# The Meaning of Tasks!
+# The Meaning of Tasks!!
 
 GEOL 590 is about how to do stuff with R. Accordingly, you will be graded on whether you can do the stuff I think you should be able to do in R. 
 
