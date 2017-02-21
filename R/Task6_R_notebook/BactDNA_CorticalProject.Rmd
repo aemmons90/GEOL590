@@ -1,0 +1,37 @@
+---
+title: "Bacterial DNA versus cortical content from surface remains"
+output: html_notebook
+author: "Alex Emmons"
+date: 20 Feb 2017
+---
+
+
+#Introduction: 
+#The data used in the following code is metadata associated with microbial 16S rRNA and 18S rRNA sequence data taken from mutliple bone types across three human individuals that decomposed in a natural surface environment. The purpose of this script was to look at the relationship between bacterial DNA abundance data as a function of cortical bone content. 
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+#Results: 
+```{r}
+library(ggplot2)
+metadataBone3 <- read.csv("C:/Users/Alexandra Emmons/Dropbox/BoneSurfaceProject/BoneSurface_metadata_all.csv")
+graph2 <- ggplot(metadataBone3, aes(X..Cortical, Bacterial.DNA, colour=Body.region)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, inherit.aes = FALSE, aes(X..Cortical, Bacterial.DNA))
+graph2 + ylab("Bacterial DNA yield (copy#/ul)") + xlab("Percent Cortical Bone (%)")+ 
+  scale_colour_discrete(name = "Bone Region")
+```
+#Though bones with the highest cortical content corresponded with less bacterial infiltration, the overall relationship did not appear to be linear. 
+
+#A linear model can be used to test the relationship between bacterial DNA and cortical bone content. 
+```{r}
+fit1 <- lm(Bacterial.DNA ~ X..Cortical, data = metadataBone3, na.action = na.exclude)
+summary(fit1)
+```
+#The linear relationship appears to be significant; however, the model is weak (r sqaured= 0.1229)
+
+#Discussion:
+#Bacteiral DNA infiltration is not necessarily controlled by cortical bone content; though, the two seem to be related. 
+
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
