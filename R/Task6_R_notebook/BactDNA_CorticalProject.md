@@ -10,11 +10,20 @@ Alex Emmons
 #Results: 
 
 ```r
+#Used to load ggplot2 to create a plot visualizing bone cortical content versus bacterial DNA quantity
 library(ggplot2)
+
+
+#Reads in the data and assigns it to an object metadataBone3 
 metadataBone3 <- read.csv("C:/Users/Alexandra Emmons/Dropbox/BoneSurfaceProject/BoneSurface_metadata_all.csv")
+               
+
+#Create a scatter plot of bacterial DNA versus cortical bone content
 graph2 <- ggplot(metadataBone3, aes(X..Cortical, Bacterial.DNA, colour=Body.region)) + 
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, inherit.aes = FALSE, aes(X..Cortical, Bacterial.DNA))
+
+#Corrects labels and print the graphical output
 graph2 + ylab("Bacterial DNA yield (copy#/ul)") + xlab("Percent Cortical Bone (%)")+ 
   scale_colour_discrete(name = "Bone Region")
 ```
@@ -33,7 +42,10 @@ graph2 + ylab("Bacterial DNA yield (copy#/ul)") + xlab("Percent Cortical Bone (%
 #A linear model can be used to test the relationship between bacterial DNA and cortical bone content. 
 
 ```r
+#Builds the linear model and assigns it to object fit1
 fit1 <- lm(Bacterial.DNA ~ X..Cortical, data = metadataBone3, na.action = na.exclude)
+
+#Summarizes the data
 summary(fit1)
 ```
 
