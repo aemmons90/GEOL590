@@ -3,11 +3,11 @@ Alex Emmons
 20 Feb 2017  
 
 
-#Introduction: 
-#The data used in the following code is metadata associated with microbial 16S rRNA and 18S rRNA sequence data taken from mutliple bone types across three human individuals that decomposed in a natural surface environment. The purpose of this script was to look at the relationship between bacterial DNA abundance data as a function of cortical bone content. 
+##Introduction: 
+The data used in the following code is metadata associated with microbial 16S rRNA and 18S rRNA sequence data taken from mutliple bone types across three human individuals that decomposed in a natural surface environment. The purpose of this script was to look at the relationship between bacterial DNA abundance data as a function of cortical bone content. 
 
 
-#Results: 
+##Results: 
 
 ```r
 #Used to load ggplot2 to create a plot visualizing bone cortical content versus bacterial DNA quantity
@@ -37,9 +37,9 @@ graph2 + ylab("Bacterial DNA yield (copy#/ul)") + xlab("Percent Cortical Bone (%
 ```
 
 ![](BactDNA_CorticalProject_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
-#Though bones with the highest cortical content corresponded with less bacterial infiltration, the overall relationship did not appear to be linear. 
+Though bones with the highest cortical content corresponded with less bacterial infiltration, the overall relationship did not appear to be linear. 
 
-#A linear model can be used to test the relationship between bacterial DNA and cortical bone content. 
+A linear model can be used to test the relationship between bacterial DNA and cortical bone content. 
 
 ```r
 #Builds the linear model and assigns it to object fit1
@@ -71,9 +71,9 @@ summary(fit1)
 ## Multiple R-squared:  0.1304,	Adjusted R-squared:  0.1229 
 ## F-statistic: 17.54 on 1 and 117 DF,  p-value: 5.487e-05
 ```
-#The linear relationship appears to be significant; however, the model is weak (r sqaured= 0.1229)
+The linear relationship appears to be significant; however, the model is weak (r sqaured= 0.1229)
 
-#Discussion:
-#Bacteiral DNA infiltration is not necessarily controlled by cortical bone content; though, the two seem to be related. 
+##Discussion:
+Bacteiral DNA infiltration is not necessarily controlled by cortical bone content; though, the two seem to be related. 
 
 
