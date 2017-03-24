@@ -68,5 +68,165 @@ col_add(x, "humid", "precip", "mynewcol")
 ## #   precip <dbl>, pressure <dbl>, visib <dbl>, time_hour <dttm>,
 ## #   mynewcol <dbl>
 ```
+##Function 2
+
+###Writing a for loop in R
+Write a function named that uses a for loop to calculate the sum of the elements of a vector, which is passed as an argument (i.e., it should do the same thing that sum() does with vectors). your_fun(1:10^4) should return 50005000.
+
+```r
+#Create a vector to use to test the function
+y<- (1:10^4)
+
+#create a function named "vsum"
+vsum <- function(a){
+#This creates a loop for each element in an object a
+  for(i in a){
+#This defines that i is an element of a
+  if(is.element(i, a) ==TRUE)
+#This takes the sum of the vector a, or each element in the vector
+  b<-sum(a)}
+print(b)
+}
+#Calling the function
+vsum(y)
+```
+
+```
+## [1] 50005000
+```
+###Loop Step 2
+The goal was to use the microbenchmark::microbenchmark function to compare the performace of the above function to that of sum in adding up the elements of the vector 1:10^4. The benchmarking code should look something like:
 
 
+```r
+library("microbenchmark")
+```
+
+```
+## Warning: package 'microbenchmark' was built under R version 3.3.3
+```
+
+
+
+```r
+test.vec <- 1:10^4
+microbenchmark::microbenchmark(
+    vsum(test.vec),
+    sum(test.vec)
+    )
+```
+
+```
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+## [1] 50005000
+```
+
+```
+## Unit: microseconds
+##            expr        min          lq         mean     median         uq
+##  vsum(test.vec) 362268.925 406324.2520 576551.08764 542908.163 688360.893
+##   sum(test.vec)      6.316     10.6595     16.95562     14.607     23.094
+##          max neval cld
+##  1103272.501   100   b
+##       37.503   100  a
+```
+### Is there a difference?
+Yes, there was a difference between my loop function vsum() and sum(). I have no idea why. 

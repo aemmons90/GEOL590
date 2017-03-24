@@ -50,5 +50,42 @@ col_add <- function(df, i, j, k){
 col_add(x, "humid", "precip", "mynewcol") 
 
 ```
+##Function 2
+
+###Writing a for loop in R
+Write a function named that uses a for loop to calculate the sum of the elements of a vector, which is passed as an argument (i.e., it should do the same thing that sum() does with vectors). your_fun(1:10^4) should return 50005000.
+```{r}
+#Create a vector to use to test the function
+y<- (1:10^4)
+
+#create a function named "vsum"
+vsum <- function(a){
+#This creates a loop for each element in an object a
+  for(i in a){
+#This defines that i is an element of a
+  if(is.element(i, a) ==TRUE)
+#This takes the sum of the vector a, or each element in the vector
+  b<-sum(a)}
+print(b)
+}
+#Calling the function
+vsum(y)
+
+```
+###Loop Step 2
+The goal was to use the microbenchmark::microbenchmark function to compare the performace of the above function to that of sum in adding up the elements of the vector 1:10^4. The benchmarking code should look something like:
+
+```{r}
+library("microbenchmark")
+```
 
 
+```{r}
+test.vec <- 1:10^4
+microbenchmark::microbenchmark(
+    vsum(test.vec),
+    sum(test.vec)
+    )
+```
+### Is there a difference?
+Yes, there was a difference between my loop function vsum() and sum(). I have no idea why. 
