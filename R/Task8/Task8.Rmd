@@ -1,17 +1,17 @@
 ---
 title: "Task 8"
 output:
-  html_document:  
-    keep_md: true
   html_notebook: default
+  html_document:
+    keep_md: yes
 ---
 
-##Introduction:
+## Introduction:
 The following code was written in completion of Task08. The purpose of this task was to learn how to write functions. 
 
-##Function 1
+## Function 1
 
-###Functions and error handling: 
+### Functions and error handling: 
 The goal was to write a function that fulfills the following criteria:
   It should be tidyverse compatible (i.e., the first argument must be a data frame)
   It should add two arbitrary columns of the data frame (specified by the user) and put them in a new column of that data frame, with the name of the new column specified by the user
@@ -51,9 +51,9 @@ col_add <- function(df, i, j, k){
 col_add(x, "temp", "humid", "mynewcol") 
 
 ```
-##Function 2
+## Function 2
 
-###Writing a for loop in R
+### Writing a for loop in R
 Write a function named that uses a for loop to calculate the sum of the elements of a vector, which is passed as an argument (i.e., it should do the same thing that sum() does with vectors). your_fun(1:10^4) should return 50005000.
 ```{r}
 #Create a vector to use to test the function
@@ -73,7 +73,7 @@ print(b)
 vsum(y)
 
 ```
-###Loop Step 2
+### Loop Step 2
 The goal was to use the microbenchmark::microbenchmark function to compare the performace of the above function to that of sum in adding up the elements of the vector 1:10^4. The benchmarking code should look something like:
 
 ```{r}
