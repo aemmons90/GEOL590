@@ -34,20 +34,21 @@ col_add <- function(df, i, j, k){
   if(is.data.frame(df) != TRUE) stop("The first argument is not a data frame") 
 
 #This creates a warning if the column specified does not belong to the dataframe used in the function
-  if(is.data.frame(df[[i]]) != TRUE | is.data.frame(df[[j]]) !=TRUE) warning("i or j does not belong to df")
+  if(is.vector(df[[i]]) != TRUE | is.vector(df[[j]]) !=TRUE) warning("i or j does not belong to df")
 
 #sums columns i and j and creates a new column "k", which can be named when the function is called  
   df[[k]] <- (df[[i]] + df[[j]]) 
   
 #use trycatch() if the columns to add aren't valid but the new column name is, the function should create a column of NA values
-#tryCatch(is.data.frame(), error=function(cond) FALSE) #Not sure how to use trycatch()
+#tryCatch #Not sure how to use trycatch(); below doesn not work
+  tryCatch(if(is.numeric(df[[i]]) != TRUE | is.numeric(df[[j]]) != TRUE) error= function() NA)
 
 #returns the original data frame.
   return(df) 
 }
 
 #Calling the function
-col_add(x, "humid", "precip", "mynewcol") 
+col_add(x, "temp", "humid", "mynewcol") 
 
 ```
 ##Function 2

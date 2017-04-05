@@ -140,22 +140,21 @@ col_add &lt;- function(df, i, j, k){
   if(is.data.frame(df) != TRUE) stop(&quot;The first argument is not a data frame&quot;) 
 
 #This creates a warning if the column specified does not belong to the dataframe used in the function
-  if(is.data.frame(df[[i]]) != TRUE | is.data.frame(df[[j]]) !=TRUE) warning(&quot;i or j does not belong to df&quot;)
+  if(is.vector(df[[i]]) != TRUE | is.vector(df[[j]]) !=TRUE) warning(&quot;i or j does not belong to df&quot;)
 
 #sums columns i and j and creates a new column &quot;k&quot;, which can be named when the function is called  
   df[[k]] &lt;- (df[[i]] + df[[j]]) 
   
 #use trycatch() if the columns to add aren't valid but the new column name is, the function should create a column of NA values
-#tryCatch(is.data.frame(), error=function(cond) FALSE) #Not sure how to use trycatch()
+#tryCatch #Not sure how to use trycatch(); below doesn not work
+  tryCatch(if(is.numeric(df[[i]]) != TRUE | is.numeric(df[[j]]) != TRUE) error= function() NA)
 
 #returns the original data frame.
   return(df) 
 }
 
 #Calling the function
-col_add(x, &quot;humid&quot;, &quot;precip&quot;, &quot;mynewcol&quot;) </code></pre>
-<pre><code>## Warning in col_add(x, &quot;humid&quot;, &quot;precip&quot;, &quot;mynewcol&quot;): i or j does not
-## belong to df</code></pre>
+col_add(x, &quot;temp&quot;, &quot;humid&quot;, &quot;mynewcol&quot;) </code></pre>
 <pre><code>## # A tibble: 26,130 × 16
 ##    origin  year month   day  hour  temp  dewp humid wind_dir wind_speed
 ##     &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
@@ -307,12 +306,12 @@ microbenchmark::microbenchmark(
 ## [1] 50005000
 ## [1] 50005000</code></pre>
 <pre><code>## Unit: microseconds
-##            expr        min          lq         mean     median         uq
-##  vsum(test.vec) 362268.925 406324.2520 576551.08764 542908.163 688360.893
-##   sum(test.vec)      6.316     10.6595     16.95562     14.607     23.094
-##          max neval cld
-##  1103272.501   100   b
-##       37.503   100  a</code></pre>
+##            expr        min         lq         mean      median          uq
+##  vsum(test.vec) 388829.940 433666.312 469987.60145 441274.2785 483698.6825
+##   sum(test.vec)      6.317      7.699     13.84888     11.6465     15.0015
+##         max neval cld
+##  673729.671   100   b
+##      87.637   100  a</code></pre>
 </div>
 <div id="is-there-a-difference" class="section level3">
 <h3>Is there a difference?</h3>

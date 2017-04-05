@@ -29,25 +29,21 @@ col_add <- function(df, i, j, k){
   if(is.data.frame(df) != TRUE) stop("The first argument is not a data frame") 
 
 #This creates a warning if the column specified does not belong to the dataframe used in the function
-  if(is.data.frame(df[[i]]) != TRUE | is.data.frame(df[[j]]) !=TRUE) warning("i or j does not belong to df")
+  if(is.vector(df[[i]]) != TRUE | is.vector(df[[j]]) !=TRUE) warning("i or j does not belong to df")
 
 #sums columns i and j and creates a new column "k", which can be named when the function is called  
   df[[k]] <- (df[[i]] + df[[j]]) 
   
 #use trycatch() if the columns to add aren't valid but the new column name is, the function should create a column of NA values
-#tryCatch(is.data.frame(), error=function(cond) FALSE) #Not sure how to use trycatch()
+#tryCatch #Not sure how to use trycatch(); below doesn not work
+  tryCatch(if(is.numeric(df[[i]]) != TRUE | is.numeric(df[[j]]) != TRUE) error= function() NA)
 
 #returns the original data frame.
   return(df) 
 }
 
 #Calling the function
-col_add(x, "humid", "precip", "mynewcol") 
-```
-
-```
-## Warning in col_add(x, "humid", "precip", "mynewcol"): i or j does not
-## belong to df
+col_add(x, "temp", "humid", "mynewcol") 
 ```
 
 ```
@@ -221,12 +217,12 @@ microbenchmark::microbenchmark(
 
 ```
 ## Unit: microseconds
-##            expr        min          lq         mean     median         uq
-##  vsum(test.vec) 362268.925 406324.2520 576551.08764 542908.163 688360.893
-##   sum(test.vec)      6.316     10.6595     16.95562     14.607     23.094
-##          max neval cld
-##  1103272.501   100   b
-##       37.503   100  a
+##            expr        min         lq         mean      median          uq
+##  vsum(test.vec) 388829.940 433666.312 469987.60145 441274.2785 483698.6825
+##   sum(test.vec)      6.317      7.699     13.84888     11.6465     15.0015
+##         max neval cld
+##  673729.671   100   b
+##      87.637   100  a
 ```
 ### Is there a difference?
 Yes, there was a difference between my loop function vsum() and sum(). I have no idea why. 
