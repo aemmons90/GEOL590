@@ -31,7 +31,7 @@ x<- nycflights13::weather
 col_add <- function(df, i, j, k){ 
   
 #This sets the warning if the first argument is not a data frame.
-  if(is.data.frame(df) != TRUE) stop("The first argument is not a data frame") 
+  if(is.data.frame(df) != TRUE) warning("The first argument is not a data frame") 
 
 #This creates a warning if the column specified does not belong to the dataframe used in the function
   if(is.vector(df[[i]]) != TRUE | is.vector(df[[j]]) !=TRUE) warning("i or j does not belong to df")
@@ -39,16 +39,22 @@ col_add <- function(df, i, j, k){
 #sums columns i and j and creates a new column "k", which can be named when the function is called  
   df[[k]] <- (df[[i]] + df[[j]]) 
   
-#use trycatch() if the columns to add aren't valid but the new column name is, the function should create a column of NA values
-#tryCatch #Not sure how to use trycatch(); below doesn not work
-  tryCatch(if(is.numeric(df[[i]]) != TRUE | is.numeric(df[[j]]) != TRUE) error= function() NA)
 
 #returns the original data frame.
-  return(df) 
-}
+  
+#use trycatch() if the columns to add aren't valid but the new column name is, the function should create a column of NA values
+#tryCatch #Not sure how to use trycatch(); below doesn not work
+tryCatch({col_add 
+          if(is.numeric(df[[i]]) != TRUE) 
+          if(is.numeric(df[[j]]) != TRUE) 
+          warning = "either i or j is not numeric"
+          error= function(e) NA
 
+    })
+return(df) 
+}
 #Calling the function
-col_add(x, "temp", "humid", "mynewcol") 
+col_add(x, "origin", "time_hour", "mynewcol") 
 
 ```
 ## Function 2
@@ -89,4 +95,4 @@ microbenchmark::microbenchmark(
     )
 ```
 ### Is there a difference?
-Yes, there was a difference between my loop function vsum() and sum(). I have no idea why. 
+Yes, there was a difference between my loop function vsum() and sum().vsum() was much slower than sum(); this is because for loops are often inefficient.  
