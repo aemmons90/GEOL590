@@ -1,0 +1,23 @@
+Version Control Systems
+
+GIT:
+
+> good at comparing two versions of a file, determining where the differences are and who contributed those differences.
+> works by a series of commits
+> GEOL590_2017 git init
+	>initialzes a repository
+	> creates a .git file
+> git status
+	> tells you that files in the directory are untracked
+> if want git to pay attention to changes made to a file move into staged area
+	> git add "file_location"
+> snapshot of file version > commit
+	> git commit -m "added section on workflow"
+		> always commits what is in the staged area
+		> flag -m (message)
+			> brief description of what was happening at the time of the commit
+> Branching
+	> git branch "name of branch"
+	> git checkout "name of branch"
+	> git checkout master
+		> returns back to master branch but does not delete side branch

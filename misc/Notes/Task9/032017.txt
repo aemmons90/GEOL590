@@ -1,0 +1,32 @@
+Making a package
+package- a directory with some name
+> package called description
+> package called namespace
+> and an R directory with functions that are loaded when the directory is loaded
+
+How to make a package?
+> do not need to use devtools to make a package
+> devtools makes our life easier
+> library()
+> library(devtools)
+> create("class_example")
+	> cannot use this name
+> create("classex")
+> change R version to version 3.3.0
+> manually edit the description file
+
+load_all("classex")
+> similuates building the package
+build("classex")
+> makes a package file- zipped directory
+> can email this to be installed or can make it a gitdirectory
+install_github("adsteen/classex")
+> installing package from github
+library(classex)
+good_morning("Alex")
+
+library(roxygen2)
+roxygenize("classex")
+> creates documentation in a specified format from the documentation already written in script
+
+Packages used for our data for specific problems

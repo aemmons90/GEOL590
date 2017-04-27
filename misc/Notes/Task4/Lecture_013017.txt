@@ -1,0 +1,47 @@
+Introduction to Data visualization with ggplot2
+
+> R has multiple, distinct plotting systems
+	> Base graphics
+		> the base R graphical system is extremely flexible
+		> A simple Base R plot
+			> lets us make technically wrong and informationally non-sensical graphs
+			> syntax can also be complicated
+	> Lattice graphics
+		uses R formula syntax, which is nice
+		but it doesnt really have any advantages over ggplot2
+	> ggplot2
+		> wants you to describe a plot, not to build one
+		> what do you need to fully describe a plot?
+			> dataset
+			> what kind of plot
+				> (A geom: geom_xxx())
+			> an aesthetic mapping ( aes() )
+			> define the axes / data mapping
+			> scales
+			> a coordinate system
+			> a faceting system (plot broken into components?)
+				- graphing trends by factor?
+			> "Decoration" (aesthetic aspects that arent mapped to data)
+			> a statistical transformation (a stat: stat_xxx())
+		> Things you cant do:
+			> multiple axis plots
+			> 3D plots
+			> strangely transformed axes (unless you really try)
+			> bar graphs, easily (why not?)
+			> many discipline-specific plots
+			If it is hard in ggplot2, you probably shouldnt be doing it anyway.*
+	>Using ggplot
+		> library(ggplot2)
+		> p <- ggplot(mtcars, aes(x=disp, y=mpg, colour=cyl)) +
+			geom_point()
+			print(p) #have to print to create the plot
+		> print(str(p))> creates an object list
+		> ?theme
+		> library(ggthemes)
+		> color brewer > colorblind safe
+		>write code in an organized way:
+			> ggplot call
+			> geom(s)
+			> scales
+			> labels and other miscelleny
+			> theme

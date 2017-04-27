@@ -1,0 +1,75 @@
+Cars
+Have:
+color
+drivetrain
+engine/motor
+axle
+wheels
+
+do:
+drive
+turn on 
+crash
+
+Ferraris:
+made in italy
+wealthy ownders
+look cool
+
+do:
+go fast
+
+
+> dataframe called iris; built in data frame in R
+> head(iris)
+	gives the first 6 rows
+	tail(iris) 
+		gives last 6 rows
+> str(iris)
+
+my.fac <- iris$Species
+calss(my.fac)
+Now consideringa linear model:
+my.lm <- lm(Sepal.Length ~ Sepal.Width, data=iris)
+class(my.lm)
+
+summary(my.fac)
+summary(my.lm)
+
+plot(my.fac)
+plot(my.lm)
+
+how to write functions that can accept different type of objects? Example a dataframe or a model
+> dont want to run functions that leave things in the global environment
+> object oriented languages- builds a model of the universe
+
+define classes:
+	> class		car{
+		color
+		brakes
+		drivetrain
+	}
+	
+	> class 	drivetrain{
+		axle
+		engine
+		wheels
+	}
+
+define methods:
+	> accelerate.car{
+		a = F/m
+	}
+
+> No functions in an object oriented paradigm. There are classes that have methods. methods only apply to the classes in which they are in.
+
+> create an object with a specific summary or plot method
+> encouraged to work with object S3 classes
+	> make something into a class by declaring it is a class
+	> Ex: foo <- structure(list(), class = "foo")
+	> can define methods using dot syntax
+		> f.a (f is a class and a is a function(method))
+		> Ex: print.data.frame
+		      summary.factor
+> package (pryr)
+

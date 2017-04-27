@@ -1,0 +1,6 @@
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+C:\Users\Alexandra Emmons>"C:\Program Files\R\R-3.3.2\bin\R.exe" CMD BATCH "C:\Users\Alexandra Emmons\Dropbox\R_Course_GEOL590\R\ScriptT2_011717.r" "C:\Users\Alexandra Emmons\Dropbox\R_Course_GEOL590\R\Task2.out"
+
+C:\Users\Alexandra Emmons>

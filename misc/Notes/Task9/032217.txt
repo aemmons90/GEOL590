@@ -1,0 +1,38 @@
+Vignettes
+> browseVignettes()
+
+How to make a vignette?
+made an example package "classex"
+> subdirectory= 590_Data_Analysis
+library(devtools)
+devtools::use_vignette("autogreet", pkg = "classex")
+> created folder 'vignettes'
+> created a skeleton of a markdown package that can be used create the vignette
+> classex vignette on github
+
+How to write equations?
+> $$ signs
+ EX: $y=x^Z$
+
+EX:
+$$
+a = \displaystyle\sum__{i=1}^n x_i
+$$
+
+_____________________________________________________
+Unit Testing
+> Code should automatically and repeatedly test itself
+devtools::use_testthat(pkg = "classex")
+>description file
+	> add packages it uses under "Suggests"
+	> script file name should begin with "test.."
+Tests:
+expect_equal()
+expect_error()
+expect_warning()
+
+> Everytime you write code, there should also be code to test the code that was written. 
+
+library(testthat)
+> package to implement unit testsd
+

@@ -3,9 +3,9 @@ title: "Bacterial DNA versus cortical content from surface remains"
 author: "Alex Emmons"
 date: "20 Feb 2017"
 output:
+  html_notebook: default
   html_document:
     keep_md: yes
-  html_notebook: default
   pdf_document: default
   word_document: default
 ---

@@ -1,0 +1,21 @@
+> establish working directory using R projects
+> getwd()
+	#tells what the working directory is
+> setwd()
+	#sets the working directory; not needed if using an R project with a set directory
+> objects and functions
+	> object is anything stored in memory
+		> a<-2; take the value of 2 and assign it to object a
+	> functions as a subset of objects that do things
+	> funtions include parantheses after their name; ex: functions(), a()
+		> parantheses include parameters and arguments
+		> data.frame(x=a,y=b)
+			#includes parameters x and y
+			#value of parameter x is a and value of parameter y is b
+			# a<-c(1,2,3); #c creates a vector a with parameters 1,2,3
+			# b<-c(4,5,6) 
+			# to make the data.frame exist in memory it has to be assigned to an object
+	>write.csv() #function creates a tab delimited file of data
+	>understand value vs side effect and how these relate to functions
+	>when we call a function a new environment pops into existence, which then disappears after returning a value to the global environment
+

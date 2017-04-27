@@ -1,0 +1,10 @@
+Notes R4DS Chapter 1
+
+> tidy data- each column is a variable and each row is an observation
+> data.table?
+> rectangular data = variables and observations
+> hypothesis generation is synonymous with data exploration
+> R studio- integrated development environment
+> Some functions: sum(), mean()
+> R objects do not have parantheses
+> Help options: google, stackoverflow, section 1.6 shows how to submit an example to stockoverflow

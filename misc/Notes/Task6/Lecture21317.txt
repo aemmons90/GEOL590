@@ -1,0 +1,15 @@
+Markup language
+> html- hypertext markup language
+Markdown language
+> uses # symbols
+> second level heading ##
+Latex/tex
+
+>>>> markup language mixed with code
+> computer creates two documents: one with markup language only and the other with code only. The computer executes them separately.
+> code only creates a code results file which will then be merged into a file including markups
+
+PANDOC
+> .Rmd and .Rnw
+	> press knit (creates .pdf/.html/.docx)
+	> .md file

@@ -1,0 +1,11 @@
+R4ds 9-10
+
+>discussion on Data wrangling or getting data into R
+	>tibbles
+		>data frames
+		
+
+
+	>data import
+	>tidy data
+

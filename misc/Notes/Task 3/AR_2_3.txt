@@ -1,0 +1,14 @@
+AR- Chapter 2-3
+
+> str()- short for structure- gives a human readable description of R structure
+
+>Vectors:
+	> two types: lists (elements can be different) and atomic vectors (elements are the same)
+	> 3 properties of vectors: 1)type [typeof()], 2)length [length()], and 3)Attributes [attributes()]
+	> c()= combine- can be used to create atomic vectors
+	> double vector?- often called numeric [numeric()]
+	> least to most flexible types are : logical, integer, double, and character
+	> can combine types through coercion
+	> To make lists:
+		> list()
+		> use c() to combine several list

@@ -1,0 +1,52 @@
+Data Structures:
+> knowing what the stuff you are working with is
+Subsetting:
+> knowing how to cut the stuff and recombine to make something useful
+
+simplest data structure in R= a vector
+> a vector is:
+	> 1 dimension
+	> vector is a set or ordered numbers or other kind of data
+	> kinds of vectors: numerical, character, logical, and factors
+	> 3 ways to represent numbers: integers, single precision numbers, double precision numbers (makes sense to use double)
+	> factor- a vector of integers where each integer has a label represented by a character
+		> as.numeric(a) 
+		#converts the vector to a numeric vector
+		> as.character(a)
+		#converts to a character vector
+		> char.a <- as.character(a)
+		> as.numeric(char.a) 
+		# R does not know how to convert character vector to numbers
+		# would get illogical elements and an error message
+		> integers are small in memory, so can represent factors using integers
+		> tidyverse does not like factors
+		> vectors receive . to separate words
+>str(a)
+#stands for structure
+#works on any type of object and gives pertinent information about what kind of object you are looking at
+
+>bigger version of a vector = matrix (2 dimensions)
+>an array can be multidimensional
+
+>Lists
+	>vectors are restrictive and only allow one data type within them
+	>every item in a list has a position (1 dimensional)
+	>lists get _ to separate words
+	>lm function involves list
+	#lm refers to a linear model
+	>another type of list= data frame
+	#list with different types of vectors, where each vector has a name and each vector is the same lenght
+	#one thing we do with dataframes is make them "tidy"
+	#Each row is a single observation and each column is a unique descriptor
+
+How do we access things in data structures? - Subsetting
+	> 3 basic ways to do this:
+		1.Based on position
+		2.Based on name
+		3.Based on Boolean (logical) vector
+	> a[1] = 1
+	  a(c[3,2,1,3,1= [red, 2, 1, red, 1]
+	  a[C('steve," 'som")] = [1, red]
+	  a <- c("steve"= "1", "sue"="2",...)
+	  names(a) = c("steve", "sue"... 
+	>names are really examples of attribues

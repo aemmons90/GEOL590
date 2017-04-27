@@ -1,0 +1,59 @@
+ www.rstudio.com/resources/cheatsheets
+
+> tidyverse
+	> systematic approach to using tidy data
+	> pipes 
+		> takes an output from something and moves it into the input of something else
+	> dplyr
+		> the heart of tidyverse
+		> pipes (%>%)
+			> implies directionality
+	 ggplot(mtcars, aes(x= disp, y= mpg) + geom_point()
+		> syntax can change if using pipes
+			> mtcars %>% ggplot(aes(x= disp, y=mpg)) + geom_point()
+			> pipe takes what is on the left side and implicitly assigns it to the first argument it is piping it to
+	> want to pipe objects that are dataframes
+
+	> mtcars$mpg.per.disp <- mtcars$mpg / mtcars$disp
+	> mtcars$new.col <- mtcars$mpg.per.disp +7
+
+	> mtcars %>%
+		mutate(mpg.per.disp: mpg())%>%
+			%>%
+		plot it
+
+> SPLIT - APPLY - COMBINE
+Forest	Tree	height
+A	1	7.2
+A	2	8.1
+A	3	5
+B	1	1.2
+B	2	2.6
+B	3	11.9
+
+	> will need to split up the data and apply some type of transformation (example take the mean of each split dataset (f(x) = mean(x)))
+	> then the results of this transformation will need to be combined
+		Forest	mean height
+		A	~7
+		B	~3
+> deplyr gives us the tools to do this in a straight forward way but requires tidydata (data in a particular format)
+> download cheatsheets from R studio
+	> also, chapter 3 on "R for Data Science"
+> deplyr optimized for data frames
+> deplyr and plyr are mutually exclusive- USE deplyr
+> 3 funtions that absolutely need to know
+	> working with mtcars dataframe
+	> want average miles of cars as a function of the number of cylinders
+		> mtcars %>% 
+			group_by(cyl) %>%     ###draws invisible lines between numbers of cyclinders
+			summarise(mean.mpg = mean(mpg, na.rm = TRUE))    # We work on data frames but the output becomes a vector
+				sd.mpg = sd(mpg, na.rm = TRUE)
+			
+			mutate(mpg.per.disp = mpg/disp) #adds a columnt but not more rows
+
+> deplyr function > select(mtcars, !disp) #designed to select different columns
+	> EX: > select(mpg, disp)
+		
+
+	
+	

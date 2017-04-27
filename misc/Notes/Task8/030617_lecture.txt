@@ -1,0 +1,35 @@
+> put together a package for final project
+> package is a collection of functions
+
+How to write functions?
+> side effect- change in the state of computer without existing as a return value. 
+> want to minimize or eliminate side effects
+> my-fun <- function(z, y, z) {
+		
+		x
+		}
+# takes three arguments x, y, and z
+
+> if functions are stored as an object in memory, they can be used or if they are stored in a package.
+> search()
+	# tells us the search path- the list of places that are looked when we say the name of an object
+> Base R
+> avoid return() function
+> source()
+	puts function in the search path
+	can source a script or function
+> default attributes
+	> set using the = syntax
+	> bad.adder <- function(z=3, y=2){
+		bad.sum <- sum(x, y)
+		bad.sum
+		}
+> can also pass arguments to another function using syntax ...
+> browser()
+
+> stop()- issues errors and halts functions
+> warning()- issues a warning and does not halt process
+> important to check the arguments coming in 
+	> accept vectors and data frames?
+	> 
+	 

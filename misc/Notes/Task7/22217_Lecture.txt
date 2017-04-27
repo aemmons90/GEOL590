@@ -1,0 +1,89 @@
+SPLIT - APPLY - COMBINE
+> paradigm for data anlaysis
+	> paper about this paradigm- written in support of plyr
+> take data frames and split into invisible sections and do operations on them
+	> ex: tree_height %>%
+		group_by(forest, species) %>%
+		[some operation]
+	# Take tree height data and group by forest and species. can pipe into some function which should form new data frame. 
+____________________________
+tree_height 
+forest	species	height
+A	linden	7
+A	linden	3
+A	linden	9
+A	oak	15
+A	oak	16
+B	linden	5
+B	oak	14
+
+> considered a long data set
+> one column for the data and one column for each attribute with a row linking that attribute to the data
+> number of rows is the number of unique observations
+
+Some subjectivity to tidyness. 
+____________________________
+	> want the average height of each species in each different forest? use dplyr
+		> tree_height %>%
+			group_by(
+		___________________
+		forest	linden	oak
+		A	7	15
+		A	3	16
+		A	9	-
+		___________________
+		> This is not tidy data
+		> considered a wide data set
+		> has columns that define attributes of the data
+
+> Tidyr package changes the shape of datasets
+	> two key functions
+		> gather
+			> from wide data to long data
+		> spread
+			> from long data to wide data
+> reshape2 (now tidyr)- try not to use reshape2
+	> melt
+	> cast/ dcast/ acast
+
+> readr 
+	> functions to read data in
+	> includes read_csv
+		> this can figure out problems with the data easier than read.csv
+> sparse versus full data sets
+	> sparse data
+		> has only a few values with a lot of NAs- tidydata works well for this
+		> tidydata does not work as well with full, dense data sets (very large datasets)
+> dates and times
+	> package lubridate does well with time
+	> stringr handles strings
+> trying to do something interesting
+	> deterimine if a tidyverse package exists for this
+
+> want to put two data frames together 
+	> for example combine rainfall dataset with tree_height dataset
+	________________________
+	rainfall
+	forest	precipitation
+	A	7
+	B	20
+	C	17
+	________________________
+	> Join operations:
+		> inner_join
+		> outer_join
+		> etc...
+		> try to match one key from one data frame to a key in another
+		> differences in functions deals with what happens to missing cases
+Text files
+files describe where data is and order between columns
+> comma separated
+	A, B, C, D /n (/n = end of the line)
+	read_csv
+> ___ - delimited
+	->	->	->	->	/n
+	read_table(sep=";")
+	read_table
+> fixed width
+	characteristic of older file types
+	read_fwf (n=__)

@@ -1,0 +1,17 @@
+Good graphs vs bad
+
+>Best practices
+	>Problem: data are meaningless
+	>Solution: do good science
+
+	>Problem: smoothing is misleading
+	>Solution: be judicious with smoothing; have theory to explain smooth
+
+	>Problem: observations not stated
+	>Solution: state observations or show them
+
+	>Problem: should plot exist
+	>Solution: show simple data w/ table or text
+
+	>Problem: poor resolution
+	>Solution: save graphs to whatever size you expect to use them in

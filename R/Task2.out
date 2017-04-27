@@ -1,0 +1,46 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ####
+> # This is an R script to demonstrate some basic operations in R
+> ####
+> 
+> # Make three vectors 
+> 
+> x <- seq(from=1, to=20, length.out=10)
+> y <- rnorm(10)
+> labels <- letters[10] 
+> 
+> d <- data.frame(x, y, labels)
+> 
+> # Save a plot
+> png("test_plot.png", height=3, width=4, units="in", res=300)
+> plot(x, y)
+> dev.off()
+null device 
+          1 
+> 
+> # Save a .csv file with the data
+> write.csv("test_data.csv")
+"","x"
+"1","test_data.csv"
+> 
+> proc.time()
+   user  system elapsed 
+   0.23    0.06    0.26 
